@@ -1,0 +1,22 @@
+    database:
+        image: postgres
+        ports:
+          - "5432"
+    
+    web:
+        image: shuny/blog_web:latest
+        # volumes:
+            # - ./myApp:/code/myApp/
+        tty: true
+        stdin_open: true 
+        # working_dir: /code/myApp
+        command: yesod devel
+        environment:
+          - HOST=0.0.0.0
+          - PGUSER=postgres
+          - PGPASS
+          - PGHOST=database
+        ports:
+            - "3000:3000"
+        links:
+            - database

@@ -1,0 +1,15 @@
+$if null articles
+    <p>There is no Article
+$else
+    <form method=post enctype=#{formEnctype}>
+        ^{formWidget}
+        <div>
+            <input type="submit">
+    <ul>
+        $forall Entity articleId article <- articles
+            <li>
+              <a href=@{ArticleR articleId}>#{articleTitle article}
+
+<hr />
+
+

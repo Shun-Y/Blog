@@ -1,0 +1,14 @@
+<form method=post action=@{BlogR} enctype=#{formEnctype}>
+    ^{formWidget}
+    <input type="submit">
+$if null articles
+    <p>There is no Article
+$else
+
+
+    <ul>
+        $forall Entity articleId article <- articles
+            <li>
+              <a href=@{ArticleR articleId}>#{articleTitle article}
+
+<hr />

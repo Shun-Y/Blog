@@ -6,7 +6,5 @@
 
 / HomeR GET POST
 
-/blog PeraR GET POST
+/blog BlogR GET POST
 /blog/#ArticleId ArticleR GET 
-
-

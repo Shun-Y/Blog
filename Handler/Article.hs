@@ -6,9 +6,9 @@ import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3,
 
 getArticleR :: ArticleId -> Handler Html
 getArticleR articleId = do
-      (article, ()) <- runDB $ do
+      article <- runDB $ do
         article <- get404 articleId
-        return (article, ())
+        return article
       defaultLayout $ do 
         setTitle "Article page"
         [whamlet|

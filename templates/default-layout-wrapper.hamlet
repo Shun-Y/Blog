@@ -25,6 +25,7 @@ $newline never
   <body>
     <div class="container">
       <header>
+        <h1>Hello Haskell!!
       <div id="main" role="main">
         <div id="contents">
           ^{pageBody pc}

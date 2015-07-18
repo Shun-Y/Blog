@@ -18,7 +18,6 @@ getHomeR = do
         handlerName = "getHomeR" :: Text
     defaultLayout $ do
         aDomId <- newIdent
-        {- setTitleI MsgHomepageTitle -}
         setTitle "Welcome To Yesod!"
         $(widgetFile "homepage")
 

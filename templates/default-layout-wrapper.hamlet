@@ -26,7 +26,11 @@ $newline never
     <div class="container">
       <header>
       <div id="main" role="main">
+        $forall Entity articleId article <- articles
+            <li>
+              <a href=@{ArticleR articleId}>#{articleTitle article}
         ^{pageBody pc}
+        
       <footer>
         #{appCopyright $ appSettings master}
 

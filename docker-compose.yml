@@ -5,7 +5,7 @@ web:
     volumes:
       - .:/blog/
     # working_dir: /blog
-    command: stack exec -- yesod devel
+    command: stack test
     environment:
       - HOST=0.0.0.0
       - PGUSER=postgres

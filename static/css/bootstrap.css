@@ -6227,3 +6227,25 @@ footer{
     height: 100px;
     clear: both;
 }
+article{
+    /* display: inline-block; */
+    margin-bottom: 20px;
+}
+article h1{
+    text-align: left;
+    font-size: 30px;
+}
+
+a{
+    color: #333;
+}
+
+a:hover{
+    color:#9D6043;
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 0px;
+    list-style-type: none;
+}

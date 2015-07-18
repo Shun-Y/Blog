@@ -25,5 +25,5 @@ database:
   database: "_env:PGDATABASE:blog"
   poolsize: "_env:PGPOOLSIZE:10"
 
-copyright: Powered by Yesod.
+copyright: Powered by Yesod
 #analytics: UA-YOURCODE

@@ -31,9 +31,10 @@ $newline never
           ^{pageBody pc}
         <div id="sidebar">
           <h2>Sidebar 
-          $forall Entity articleId article <- articles
-            <li>
-              <a href=@{ArticleR articleId}>#{articleTitle article}
+          <ul>  
+            $forall Entity articleId article <- articles
+              <li>
+                <a href=@{ArticleR articleId}>#{articleTitle article}
         
       <footer>
         #{appCopyright $ appSettings master}

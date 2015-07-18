@@ -20,7 +20,7 @@ ip-from-header: "_env:IP_FROM_HEADER:false"
 database:
   user:     "_env:PGUSER:postgres"
   password: "_env:PGPASS:"
-  host:     "_env:PGHOST:database"
+  host:     "_env:PGHOST:postgres"
   port:     "_env:PGPORT:5432"
   database: "_env:PGDATABASE:blog"
   poolsize: "_env:PGPOOLSIZE:10"

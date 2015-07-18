@@ -6236,6 +6236,10 @@ article h1{
     font-size: 30px;
 }
 
+article p{
+    font-size: 17px;
+}
+
 a{
     color: #333;
 }

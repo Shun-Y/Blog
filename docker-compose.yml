@@ -1,22 +1,30 @@
-    database:
-        image: postgres
-        ports:
-          - "5432"
-    
-    web:
-        build: .
-        tty: true
-        stdin_open: true
-        volumes:
-          - .:/blog/
-        # working_dir: /blog
-        command: stack exec -- yesod devel
-        environment:
-          - HOST=0.0.0.0
-          - PGUSER=postgres
-          - PGPASS
-          - PGHOST=database
-        ports:
-          - "3000:3000"
-        links:
-          - database
+web:
+    build: .
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/blog/
+    # working_dir: /blog
+    command: stack exec -- yesod devel
+    environment:
+      - HOST=0.0.0.0
+      - PGUSER=postgres
+      - PGPASS
+      - PGHOST=postgres
+    ports:
+      - "3000:3000"
+    links:
+      - postgres
+
+postgres:
+    restart: always
+    image: postgres:latest
+    volumes_from:
+      - database
+    ports:
+      - "5432:5432"
+        
+database:
+    image: postgres:latest
+    volumes:
+      - /var/lib/postgresql

@@ -10,9 +10,6 @@ getArticleR articleId = do
         article <- get404 articleId
         return article
       defaultLayout $ do 
+        aDomId <- newIdent
         setTitle "Article page"
-        [whamlet|
-        <h1>#{articleTitle article}
-        <article>#{articleBody article}
-        <h1>Message
-        |]
+        $(widgetFile "article")

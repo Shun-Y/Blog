@@ -4,5 +4,6 @@ FROM shuny/yesod-stack
 RUN mkdir -p /blog
 WORKDIR /blog
 COPY . ./
-RUN stack build
+RUN stack clean && stack build && stack install
 ENV PATH /root/.local/bin:$PATH
+# RUN cp .stack-work/dist/x86_64-linux/Cabal-1.18.1.5/build/blog/blog ./

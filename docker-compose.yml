@@ -1,11 +1,11 @@
 web:
-    build: .
+    image: blog_web:latest 
     tty: true
     stdin_open: true
     volumes:
       - .:/blog/
-    # working_dir: /blog
-    command: stack test
+    working_dir: /blog
+    command: stack exec -- blog
     environment:
       - HOST=0.0.0.0
       - PGUSER=postgres
@@ -16,6 +16,12 @@ web:
     links:
       - postgres
 
+database:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - /var/lib/postgresql
+
 postgres:
     restart: always
     image: postgres:latest
@@ -23,8 +29,3 @@ postgres:
       - database
     ports:
       - "5432:5432"
-        
-database:
-    image: postgres:latest
-    volumes:
-      - /var/lib/postgresql

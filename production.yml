@@ -10,8 +10,7 @@
         tty: true
         stdin_open: true 
         # working_dir: /code/myApp
-        command: stack exec -- yesod devel
-            # .stack-work/dist/x86_64-linux/Cabal-1.18.1.5/build/blog/blog
+        command: stack exec -- .stack-work/dist/x86_64-linux/Cabal-1.18.1.5/build/blog/blog
         environment:
           - HOST=0.0.0.0
           - PGUSER=postgres

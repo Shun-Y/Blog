@@ -1,0 +1,177 @@
+[
+{
+    "Id": "e182fc0f0453e4c218bb19a6d7e3932d1d69ea2a7117b59affae9965dc12b262",
+    "Created": "2015-07-20T05:47:14.853737908Z",
+    "Path": "/usr/local/sbin/docker-entrypoint",
+    "Args": [
+        "stack",
+        "exec",
+        "--",
+        "yesod",
+        "devel"
+    ],
+    "State": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 28690,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2015-07-20T05:47:15.143498185Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "Image": "a89cc95ecb51f11b739e72add94c9c806699b8435106b0ad38d3e051a8f9b07a",
+    "NetworkSettings": {
+        "Bridge": "",
+        "EndpointID": "ab0204b07e8ff02edc118c54972a53ed567c9b3ad38c476971b231a8cb45e3ff",
+        "Gateway": "172.17.42.1",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "HairpinMode": false,
+        "IPAddress": "172.17.0.55",
+        "IPPrefixLen": 16,
+        "IPv6Gateway": "",
+        "LinkLocalIPv6Address": "",
+        "LinkLocalIPv6PrefixLen": 0,
+        "MacAddress": "02:42:ac:11:00:37",
+        "NetworkID": "994f71181a6dba3eba8bf812d5ca4138364275afa24157d037c120d2c3f6cb2f",
+        "PortMapping": null,
+        "Ports": {
+            "3000/tcp": [
+                {
+                    "HostIp": "0.0.0.0",
+                    "HostPort": "3000"
+                }
+            ]
+        },
+        "SandboxKey": "/var/run/docker/netns/e182fc0f0453",
+        "SecondaryIPAddresses": null,
+        "SecondaryIPv6Addresses": null
+    },
+    "ResolvConfPath": "/var/lib/docker/containers/e182fc0f0453e4c218bb19a6d7e3932d1d69ea2a7117b59affae9965dc12b262/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/e182fc0f0453e4c218bb19a6d7e3932d1d69ea2a7117b59affae9965dc12b262/hostname",
+    "HostsPath": "/var/lib/docker/containers/e182fc0f0453e4c218bb19a6d7e3932d1d69ea2a7117b59affae9965dc12b262/hosts",
+    "LogPath": "/var/lib/docker/containers/e182fc0f0453e4c218bb19a6d7e3932d1d69ea2a7117b59affae9965dc12b262/e182fc0f0453e4c218bb19a6d7e3932d1d69ea2a7117b59affae9965dc12b262-json.log",
+    "Name": "/blog_web_1",
+    "RestartCount": 0,
+    "Driver": "aufs",
+    "ExecDriver": "native-0.2",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "Volumes": {
+        "/blog": "/home/shuny/Documents/docker/blog"
+    },
+    "VolumesRW": {
+        "/blog": true
+    },
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+        "Binds": [
+            "/home/shuny/Documents/docker/blog:/blog/:rw"
+        ],
+        "ContainerIDFile": "",
+        "LxcConf": null,
+        "Memory": 0,
+        "MemorySwap": 0,
+        "CpuShares": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "CpuQuota": 0,
+        "BlkioWeight": 0,
+        "OomKillDisable": false,
+        "Privileged": false,
+        "PortBindings": {
+            "3000/tcp": [
+                {
+                    "HostIp": "",
+                    "HostPort": "3000"
+                }
+            ]
+        },
+        "Links": [
+            "/blog_postgres_1:/blog_web_1/blog_postgres_1",
+            "/blog_postgres_1:/blog_web_1/postgres",
+            "/blog_postgres_1:/blog_web_1/postgres_1"
+        ],
+        "PublishAllPorts": false,
+        "Dns": null,
+        "DnsSearch": null,
+        "ExtraHosts": null,
+        "VolumesFrom": [
+            "9d473d2a3e24e1efad02b4c2b5901f90956e8707dc7edc37d6a30f8d0c7c522c"
+        ],
+        "Devices": null,
+        "NetworkMode": "bridge",
+        "IpcMode": "",
+        "PidMode": "",
+        "UTSMode": "",
+        "CapAdd": null,
+        "CapDrop": null,
+        "RestartPolicy": {
+            "Name": "",
+            "MaximumRetryCount": 0
+        },
+        "SecurityOpt": null,
+        "ReadonlyRootfs": false,
+        "Ulimits": null,
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {}
+        },
+        "CgroupParent": ""
+    },
+    "Config": {
+        "Hostname": "e182fc0f0453",
+        "Domainname": "",
+        "User": "",
+        "AttachStdin": false,
+        "AttachStdout": false,
+        "AttachStderr": false,
+        "PortSpecs": null,
+        "ExposedPorts": {
+            "3000/tcp": {}
+        },
+        "Tty": true,
+        "OpenStdin": true,
+        "StdinOnce": false,
+        "Env": [
+            "PGUSER=postgres",
+            "HOST=0.0.0.0",
+            "PGHOST=postgres",
+            "PGPASS=",
+            "PATH=/root/.local/bin:/opt/host/bin:/opt/stackage/lts-2/extra/bin:/opt/stackage/lts-2/ghc/bin:/opt/stackage/lts-2/tools/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "HOME=/root",
+            "DOCKER_SANDBOX_ID=basic_build_lts-2.16_20150629",
+            "DOCKER_SANDBOX_NAME=basic_build_lts-2.16_20150629",
+            "LANG=C.UTF-8",
+            "LC_ALL=C.UTF-8",
+            "MY_INIT_ARGS=--skip-startup-files --skip-runit --quiet",
+            "SANDBOX_NAME=basic_build_lts-2.16_20150629"
+        ],
+        "Cmd": [
+            "stack",
+            "exec",
+            "--",
+            "yesod",
+            "devel"
+        ],
+        "Image": "blog_web",
+        "Volumes": {
+            "/blog/": {}
+        },
+        "VolumeDriver": "",
+        "WorkingDir": "/blog",
+        "Entrypoint": [
+            "/usr/local/sbin/docker-entrypoint"
+        ],
+        "NetworkDisabled": false,
+        "MacAddress": "",
+        "OnBuild": null,
+        "Labels": {}
+    }
+}
+]

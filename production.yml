@@ -1,22 +1,31 @@
-    database:
-        image: postgres
-        ports:
-          - "5432"
-    
-    web:
-        image: shuny/blog_web:latest
-        # volumes:
-            # - .:/blog
-        tty: true
-        stdin_open: true 
-        # working_dir: /code/myApp
-        command: stack exec -- .stack-work/dist/x86_64-linux/Cabal-1.18.1.5/build/blog/blog
-        environment:
-          - HOST=0.0.0.0
-          - PGUSER=postgres
-          - PGPASS
-          - PGHOST=database
-        ports:
-            - "3000:3000"
-        links:
-            - database
+web:
+    restart: always
+    image: shuny/blog_web:latest
+    tty: true
+    stdin_open: true 
+    working_dir: /blog
+    ports:
+        - "3000:3000"
+    command: stack exec -- blog
+    environment:
+      - HOST=0.0.0.0
+      - APPROOT=http://104.236.123.109:3000
+      - PGUSER=postgres
+      - PGPASS
+      - PGHOST=postgres
+    links:
+        - postgres
+
+database:
+    restart: always
+    extends:
+        file: common.yml
+        service: database
+
+postgres:
+    restart: always
+    image: postgres:latest
+    volumes_from:
+      - database
+    ports:
+      - "5432:5432"

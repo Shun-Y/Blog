@@ -1,29 +1,28 @@
 web:
     image: blog_web:latest 
-    tty: true
-    stdin_open: true
     volumes:
       - .:/blog/
+    tty: true
+    stdin_open: true 
     working_dir: /blog
+    ports:
+        - "3000:3000"
     command: stack exec -- blog
     environment:
       - HOST=0.0.0.0
+      - APPROOT=http://localhost:3000
       - PGUSER=postgres
       - PGPASS
       - PGHOST=postgres
-    ports:
-      - "3000:3000"
     links:
-      - postgres
+        - postgres
 
 database:
-    restart: always
-    image: postgres:latest
-    volumes:
-      - /var/lib/postgresql
+    extends:
+        file: common.yml
+        service: database
 
 postgres:
-    restart: always
     image: postgres:latest
     volumes_from:
       - database

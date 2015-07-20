@@ -1,0 +1,21 @@
+web:
+    tty: true
+    stdin_open: true 
+    working_dir: /blog
+    ports:
+        - "3000:3000"
+    links:
+        - postgres
+
+database:
+    image: postgres
+    volumes:
+      - /var/lib/postgresql
+
+postgres:
+    restart: always
+    image: postgres:latest
+    volumes_from:
+      - database
+    ports:
+      - "5432:5432"

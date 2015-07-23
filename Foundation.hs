@@ -148,8 +148,7 @@ instance RenderMessage App FormMessage where
 unsafeHandler :: App -> Handler a -> IO a
 unsafeHandler = Unsafe.fakeHandlerGetLogger appLogger
 
-hoge = printDate . toGregorian . utctDay . articleDate
-  where printDate (y,m,d) = (show y) ++ "/"++ (show m) ++ "/" ++ (show d)
+
 
 -- Note: Some functionality previously present in the scaffolding has been
 -- moved to documentation in the Wiki. Following are some hopefully helpful
@@ -158,3 +157,10 @@ hoge = printDate . toGregorian . utctDay . articleDate
 -- https://github.com/yesodweb/yesod/wiki/Sending-email
 -- https://github.com/yesodweb/yesod/wiki/Serve-static-files-from-a-separate-domain
 -- https://github.com/yesodweb/yesod/wiki/i18n-messages-in-the-scaffolding
+
+
+
+-- | Define general function.
+
+dateToString = printDate . toGregorian . utctDay . articleDate
+  where printDate (y,m,d) = (show y) ++ "/" ++ (show m) ++ "/" ++ (show d)

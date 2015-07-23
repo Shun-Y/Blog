@@ -1,4 +1,4 @@
-module Handler.Home where
+module Handler.Manage where
 
 import Import
 import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3,
@@ -11,8 +11,8 @@ import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3,
 -- The majority of the code you will write in Yesod lives in these handler
 -- functions. You can spread them across multiple files if you are so
 -- inclined, or create a single monolithic file.
-getHomeR :: Handler Html
-getHomeR = do
+getManageR :: Handler Html
+getManageR = do
     articles <- runDB $ selectList [] [Desc ArticleDate]
     defaultLayout $ do
         aDomId <- newIdent

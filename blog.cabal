@@ -24,6 +24,8 @@ library
                      Handler.Home
                      Handler.Blog
                      Handler.Article
+                     Handler.Manage
+                     Handler.Delete
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

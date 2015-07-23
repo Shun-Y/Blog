@@ -1,0 +1,13 @@
+<table border="1">
+  <thead>
+    <tr>
+      <th>Title
+      <th>Date
+      <th>Edit
+      <th>Delete
+  <tbody>
+    $forall Entity articleId article <- articles
+      <tr>
+        <td>#{articleTitle article}
+        <td>#{dateToString article}
+        <td><a href=@{DeleteR articleId}>Delete

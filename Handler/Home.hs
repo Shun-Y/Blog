@@ -17,4 +17,4 @@ getHomeR = do
     defaultLayout $ do
         aDomId <- newIdent
         setTitle "Manage articles"
-        $(widgetFile "manage")
+        $(widgetFile "home")

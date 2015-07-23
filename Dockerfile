@@ -1,8 +1,7 @@
-FROM shuny/yesod-stack
+FROM blog_web:latest
 
-#Install yesod application
-RUN mkdir -p /blog
-WORKDIR /blog
+#build new image
 COPY . ./
 RUN stack clean && stack build && stack install
 ENV PATH /root/.local/bin:$PATH
+# VOLUME /blog

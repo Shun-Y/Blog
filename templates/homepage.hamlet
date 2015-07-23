@@ -1,5 +1,6 @@
 $forall Entity articleId article <- articles
   <article>
     <h1>
-      <a href=@{ArticleR articleId}>#{articleTitle article}
+      <a href=@{ArticleR articleId}>#{(articleTitle) article} #{(hoge) article}
     <p>#{articleBody article}
+/* (\(x,y,z)-> x) . toGregorian . utctDay .  */

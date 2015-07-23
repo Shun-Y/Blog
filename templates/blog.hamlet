@@ -5,10 +5,4 @@ $if null articles
     <p>There is no Article
 $else
 
-
-    <ul>
-        $forall Entity articleId article <- articles
-            <li>
-              <a href=@{ArticleR articleId}>#{articleTitle article}
-
 <hr />

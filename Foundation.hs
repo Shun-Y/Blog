@@ -9,7 +9,7 @@ import Yesod.Auth.Message   (AuthMessage (InvalidLogin))
 import Yesod.Default.Util   (addStaticContentExternal)
 import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
-
+import Text.Blaze.Html.Renderer.String
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
 -- starts running, such as database connections. Every handler will have
@@ -161,6 +161,9 @@ unsafeHandler = Unsafe.fakeHandlerGetLogger appLogger
 
 
 -- | Define general function.
-
+dateToString :: Article -> String
 dateToString = printDate . toGregorian . utctDay . articleDate
   where printDate (y,m,d) = (show y) ++ "/" ++ (show m) ++ "/" ++ (show d)
+
+outline :: Article -> Html
+outline = toHtml . (take 10) . renderHtml . articleBody 

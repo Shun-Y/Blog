@@ -2,4 +2,4 @@ $forall Entity articleId article <- articles
   <article>
     <h1>
       <a href=@{ArticleR articleId}>#{(articleTitle) article}
-    <p>#{articleBody article}
+    <p>#{outline article}...<a href=@{ArticleR articleId}>contiue reading</a>

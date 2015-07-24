@@ -87,6 +87,7 @@ library
                  , vector
                  , time
                  , foreign-store
+                 , blaze-html
 
 executable         blog
     if flag(library-only)

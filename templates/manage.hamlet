@@ -10,4 +10,5 @@
       <tr>
         <td>#{articleTitle article}
         <td>#{dateToString article}
+        <td><a href=@{EditR articleId}>Edit
         <td><a href=@{DeleteR articleId}>Delete

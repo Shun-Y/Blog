@@ -1,0 +1,4 @@
+<form method=post >
+    ^{formWidget}
+    <input type="submit">
+<hr />

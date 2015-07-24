@@ -11,3 +11,4 @@
 
 /manage ManageR GET
 /delete/#ArticleId DeleteR GET 
+/edit/#ArticleId  EditR GET POST

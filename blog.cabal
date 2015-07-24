@@ -26,6 +26,7 @@ library
                      Handler.Article
                      Handler.Manage
                      Handler.Delete
+                     Handler.Edit
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

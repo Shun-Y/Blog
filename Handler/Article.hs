@@ -1,8 +1,6 @@
 module Handler.Article where
 
 import Import
-import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3,
-                              withSmallInput)
 
 getArticleR :: ArticleId -> Handler Html
 getArticleR articleId = do

@@ -25,16 +25,10 @@ $newline never
   <body>
     <div class="container">
       <header>
-        <h1>Hello27 Haskell!!
+        <h1><a href=@{HomeR}>Hello27 Haskell!!</a></h1>
       <div id="main" role="main">
         <div id="contents">
           ^{pageBody pc}
-        <div id="sidebar">
-          <h2>Sidebar 
-          <ul>  
-            $forall Entity articleId article <- articles
-              <li>
-                <a href=@{ArticleR articleId}>#{articleTitle article}
         
       <footer>
         #{appCopyright $ appSettings master}

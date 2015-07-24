@@ -1,3 +1,6 @@
 <article>
-  <h1>#{articleTitle article}
-  <p>#{articleBody article}
+  <header>
+    <h1>#{articleTitle article}
+    <time>#{dateToString article}</time>
+  <section>
+    <p>#{articleBody article}

@@ -1,5 +1,5 @@
 $forall Entity articleId article <- articles
   <article>
     <h1>
-      <a href=@{ArticleR articleId}>#{(articleTitle) article} #{(dateToString) article}
+      <a href=@{ArticleR articleId}>#{(articleTitle) article}
     <p>#{articleBody article}

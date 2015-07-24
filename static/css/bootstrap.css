@@ -6,7 +6,7 @@
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
@@ -6208,44 +6208,59 @@ header{
 }
 div #main{
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 900px;
 }
 div #contents{
-    float: left;
     width: 100%;
-    min-width: 400px;
-    padding-right: 20px;
+    /* max-width: 700px; */
+    margin: 0 auto;
 }
-div #sidebar{
-    float: left;
-    width: 300px;
-    margin-right: -1000px;
-    padding-left: 100px;
-}
+/* div #sidebar{ */
+    /* float: left; */
+    /* width: 300px; */
+    /* margin-right: -1000px; */
+    /* padding-left: 100px; */
+/* } */
 
 footer{
-    height: 100px;
+    margin-top: 350px;
+    height: 50px;
     clear: both;
 }
 article{
     /* display: inline-block; */
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 article h1{
     text-align: left;
-    font-size: 30px;
+    font-size: 4.5rem;
+    letter-spacing: -2px;
+    text-indent: -3px;
+    margin-bottom: 5px;
+}
+
+article time{
+    float: right;
+    color: #666;
+    border-right: #999 1px solid;
+
 }
 
 article p{
     font-size: 17px;
+    font-family: "Merriweather", serif;
+    letter-spacing: 0.01rem;
+    word-spacing: .15em;
+
 }
 
 a{
     color: #333;
+    transition: color 0.5s ease;
 }
 
 a:hover{
-    color:#9D6043;
+    color: #999;
     text-decoration: none;
 }
 

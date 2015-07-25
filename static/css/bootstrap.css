@@ -1391,8 +1391,9 @@ pre code {
     overflow-y: scroll;
 }
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    /* padding-right: 15px; */
+    /* padding-left: 15px; */
+    background-color: #eeeeee;
     margin-right: auto;
     margin-left: auto;
 }
@@ -6203,12 +6204,25 @@ button.close {
 
 /* style for blog site */
 header{
+    background-color: #23182c;
     height: 150px;
+    padding-top: 30px
 
 }
+
+header a{
+    color: #999;
+    transition: color 0.5s ease;
+}
+
+header a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
 div #main{
     margin: 0 auto;
-    max-width: 900px;
+    width: 900px;
 }
 div #contents{
     width: 100%;
@@ -6227,10 +6241,24 @@ footer{
     height: 50px;
     clear: both;
 }
+
 article{
-    /* display: inline-block; */
-    margin-bottom: 100px;
+    background-color: #fff;
+    margin:0 0 100px;
 }
+article{
+    height: 200px;
+    position:relative;       
+    padding: 30px;
+    -webkit-box-shadow:0 1.5px 1px rgba(0, 0, 0, 0.3), 0 0 0.2px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1.5px 1px rgba(0, 0, 0, 0.3), 0 0 0.2px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1.5px 1px rgba(0, 0, 0, 0.3), 0 0 0.2px rgba(0, 0, 0, 0.1) inset;
+}
+
+article header{
+    background-color: #fff;
+}
+
 article h1{
     text-align: left;
     font-size: 4.5rem;

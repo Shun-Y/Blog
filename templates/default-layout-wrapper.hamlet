@@ -26,10 +26,9 @@ $newline never
     <div class="container">
       <header>
         <h1><a href=@{HomeR}>Hello27 Haskell!!</a></h1>
-      <div id="main" role="main">
+      <div id="main">
         <div id="contents">
           ^{pageBody pc}
-        
       <footer>
         #{appCopyright $ appSettings master}
 

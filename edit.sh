@@ -25,6 +25,8 @@ while (confirm "tell me when you finish editting\n"); do
 done
 
 #commit branch
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_github
 git add . -A
 echo -n "Input commit messages\n"
 read commit_message

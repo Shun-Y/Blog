@@ -15,12 +15,12 @@ function confirm {
 }
 
 #make a branch for the task.
-echo -n "Input task name\n"
+echo -n "Input task name \n"
 read task
 git checkout -b $task master
 
 #wait for finishing task.
-while (confirm "tell me when you finish editting\n"); do
+while (confirm "tell me when you finish editting \n"); do
     echo "finished?\n"
 done
 
@@ -28,7 +28,7 @@ done
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_github
 git add . -A
-echo -n "Input commit messages\n"
+echo -n "Input commit messages \n"
 read commit_message
 git commit -m "$commit_message"
 git push -u origin $task

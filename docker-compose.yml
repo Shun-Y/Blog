@@ -1,5 +1,5 @@
 web:
-    build: . #blog_web:latest
+    build: .
     volumes:
       - .:/blog/
     tty: true

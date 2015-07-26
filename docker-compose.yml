@@ -1,5 +1,5 @@
 web:
-    build: .
+    build: . #blog_web:latest
     volumes:
       - .:/blog/
     tty: true
@@ -7,7 +7,7 @@ web:
     working_dir: /blog
     ports:
         - "3000:3000"
-    command: stack exec -- yesod devel
+    command: stack exec -- blog
     environment:
       # - PATH=/root/.local/bin:$PATH
       - HOST=0.0.0.0

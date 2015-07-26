@@ -6205,9 +6205,16 @@ button.close {
 /* style for blog site */
 header{
     background-color: #23182c;
+    border-bottom: 5px solid #DD4814;
     height: 150px;
-    padding-top: 30px
+    padding-top: 15px; 
 
+}
+
+header h1{
+    width: 320px;
+    text-align: left;
+    margin-bottom: 30px;
 }
 
 header a{
@@ -6230,24 +6237,21 @@ div #contents{
     margin: 0 auto;
 }
 /* div #sidebar{ */
-    /* float: left; */
-    /* width: 300px; */
-    /* margin-right: -1000px; */
-    /* padding-left: 100px; */
+/* float: left; */
+/* width: 300px; */
+/* margin-right: -1000px; */
+/* padding-left: 100px; */
 /* } */
 
 footer{
-    margin-top: 350px;
+    margin-top: 50px;
     height: 50px;
     clear: both;
 }
 
 article{
     background-color: #fff;
-    margin:0 0 100px;
-}
-article{
-    height: 200px;
+    margin:-50px 0 100px 0px;
     position:relative;       
     padding: 30px;
     -webkit-box-shadow:0 1.5px 1px rgba(0, 0, 0, 0.3), 0 0 0.2px rgba(0, 0, 0, 0.1) inset;

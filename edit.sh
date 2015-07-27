@@ -21,16 +21,20 @@ git checkout -b $task master
 
 #wait for finishing task.
 while (confirm "tell me when you finish editting \n"); do
+    git add . -A
+    echo -n "Input commit messages \n"
+    read commit_message
+    git commit -m "$commit_message"
     echo "finished?\n"
 done
 
 #commit branch
-git add . -A
-echo -n "Input commit messages \n"
-read commit_message
+# git add . -A
+# echo -n "Input commit messages \n"
+# read commit_message
+# git commit -m "$commit_message"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_github
-git commit -m "$commit_message"
 git push -u origin $task
 
 #wait for pull request 

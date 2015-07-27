@@ -25,11 +25,11 @@ while (confirm "tell me when you finish editting \n"); do
 done
 
 #commit branch
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa_github
 git add . -A
 echo -n "Input commit messages \n"
 read commit_message
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_github
 git commit -m "$commit_message"
 git push -u origin $task
 
@@ -47,11 +47,3 @@ while (confirm "tell me you checked whether there exists bug\n"); do
     echo "finished?\n"
 done
 git push origin master # To push back to origin master
-
-#push to docker repository
-docker-compose run --rm --no-deps web stack clean && docker-compose run --rm --no-deps web stack build && docker-compose run --rm --no-deps web stack install
-sudo docker-compose build --no-cache web
-docker tag -f blog_web:latest shuny/blog_web:latest
-docker images
-docker login
-docker push shuny/blog_web:latest

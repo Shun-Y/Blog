@@ -3,25 +3,25 @@ module Handler.Edit where
 import Import
 import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3, withSmallInput, bfs) 
 
-data ArticleWithId = ArticleWithId{
-                       getId :: ArticleId
-                     ,  getTitle :: Text
-                     , getBody :: Html
-                     }
+{- data ArticleWithId = ArticleWithId -}
+                     {- { [> getId :: ArticleId <] -}
+                       {- getTitle :: Text -}
+                     {- , getBody :: Html -}
+                     {- } -}
 
-articleAForm :: ArticleId -> Article -> AForm Handler ArticleWithId
-articleAForm articleId article = ArticleWithId
-  <$> pure articleId
-  <*> areq textField (bfs ("Title" :: Text)) (Just (articleTitle article))
+articleAForm :: Article -> AForm Handler Article
+articleAForm article = Article
+  <$> areq textField (bfs ("Title" :: Text)) (Just (articleTitle article))
   <*> areq htmlField (bfs ("Body" :: Text))  (Just (articleBody article))
+  <*> lift (liftIO getCurrentTime)
 
-articleForm :: ArticleId -> Article -> Form ArticleWithId
-articleForm articleId article = renderBootstrap3 BootstrapBasicForm $ articleAForm articleId article
+articleForm :: Article -> Form Article
+articleForm article = renderBootstrap3 BootstrapBasicForm $ articleAForm article
 
 getEditR :: ArticleId -> Handler Html
 getEditR articleId = do
     article <- runDB $ get404 articleId
-    (formWidget, _) <- generateFormPost $ articleForm articleId article
+    (formWidget, _) <- generateFormPost $ articleForm article
     defaultLayout $ do
         aDomId <- newIdent
         setTitle "Edit Page"
@@ -30,10 +30,10 @@ getEditR articleId = do
 postEditR :: ArticleId -> Handler Html
 postEditR articleId = do
     article <- runDB $ get404 articleId
-    ((result, _), formEnctype) <- runFormPost $ articleForm articleId article
+    ((result, _), formEnctype) <- runFormPost $ articleForm article
     case result of 
       FormSuccess articleWithId -> do
-        runDB $ update (getId articleWithId) [ArticleTitle =. (getTitle articleWithId), ArticleBody =. (getBody articleWithId)]
+        runDB $ update (articleId) [ArticleTitle =. (articleTitle articleWithId), ArticleBody =. (articleBody articleWithId)]
         redirect $ ArticleR articleId
       _                   -> defaultLayout $ do
                                setTitle "PostArtcile"

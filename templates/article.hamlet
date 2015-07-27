@@ -3,4 +3,4 @@
     <h1>#{articleTitle article}
     <time>#{dateToString article}</time>
   <section>
-    <p>#{articleBody article}
+    #{articleBody article}

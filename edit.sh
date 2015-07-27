@@ -28,16 +28,16 @@ while (confirm "tell me when you finish editting \n"); do
     echo "finished?\n"
 done
 
-#commit branch
-# git add . -A
-# echo -n "Input commit messages \n"
-# read commit_message
-# git commit -m "$commit_message"
+#commit to branch
+git add . -A
+echo -n "Input commit messages \n"
+read commit_message
+git commit -m "$commit_message"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_github
 git push -u origin $task
 
-#wait for pull request 
+#wait for pull request
 while (confirm "tell me when pull request finished \n"); do
     echo "finished?\n"
 done
@@ -45,7 +45,7 @@ done
 #merge to master branch
 git checkout master
 git pull # To make sure master is up-to-date.
-git pull origin $task # To merge the central repository’s copy of<TASK>
+git pull origin $task # To merge the central repository’s copy of<TASK
 #check whether bug exists or not.
 while (confirm "tell me you checked whether there exists bug\n"); do
     echo "finished?\n"

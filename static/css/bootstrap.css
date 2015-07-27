@@ -6266,12 +6266,22 @@ article header{
 }
 
 article h1{
+    width: auto;
     text-align: left;
     font-size: 4.5rem;
     letter-spacing: -2px;
     text-indent: -3px;
     margin-bottom: 5px;
 }
+
+article h2{
+    text-align: left;
+    font-size: 2.5rem;
+    letter-spacing: -2px;
+    text-indent: -3px;
+    margin-bottom: 3px;
+}
+
 
 article time{
     float: right;

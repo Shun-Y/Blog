@@ -10,7 +10,6 @@
 
 docker-machine start production
 eval $(docker-machine env production) #point at test machine
-# docker-compose -f production.yml kill web
 docker-compose -f production.yml stop web
 docker-compose -f production.yml rm -f -v web
 docker-compose -f production.yml pull web

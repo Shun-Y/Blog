@@ -2393,7 +2393,7 @@ fieldset[disabled] .form-control {
     opacity: 1;
 }
 textarea.form-control {
-    height: auto;
+    height: 500px;
 }
 input[type="search"] {
     -webkit-appearance: none;
@@ -6260,7 +6260,9 @@ article{
 }
 
 article header{
+    padding-top: 5px;
     background-color: #fff;
+    border: none;
 }
 
 article h1{

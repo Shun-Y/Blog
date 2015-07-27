@@ -7,7 +7,7 @@ web:
     working_dir: /blog
     ports:
         - "3000:3000"
-    command: stack exec -- blog
+    command: stack exec -- yesod devel
     environment:
       # - PATH=/root/.local/bin:$PATH
       - HOST=0.0.0.0

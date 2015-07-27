@@ -1,8 +1,7 @@
 module Handler.Edit where
 
 import Import
-{- import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3, -}
-                              {- withSmallInput) -}
+import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3, withSmallInput, bfs) 
 
 data ArticleWithId = ArticleWithId{
                        getId :: ArticleId
@@ -13,11 +12,11 @@ data ArticleWithId = ArticleWithId{
 articleAForm :: ArticleId -> Article -> AForm Handler ArticleWithId
 articleAForm articleId article = ArticleWithId
   <$> pure articleId
-  <*> areq textField "Title" (Just (articleTitle article))
-  <*> areq htmlField "Body"  (Just (articleBody article))
+  <*> areq textField (bfs ("Title" :: Text)) (Just (articleTitle article))
+  <*> areq htmlField (bfs ("Body" :: Text))  (Just (articleBody article))
 
 articleForm :: ArticleId -> Article -> Form ArticleWithId
-articleForm articleId article = renderTable $ articleAForm articleId article
+articleForm articleId article = renderBootstrap3 BootstrapBasicForm $ articleAForm articleId article
 
 getEditR :: ArticleId -> Handler Html
 getEditR articleId = do

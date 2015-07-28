@@ -895,10 +895,10 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Ubuntu";
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333;
+    color: #595857;
     background-color: #fff;
 }
 input,
@@ -6204,8 +6204,8 @@ button.close {
 
 /* style for blog site */
 header{
-    background-color: #23182c;
-    border-bottom: 5px solid #DD4814;
+    background-color: #000A02;
+    border-bottom: 5px solid #595857;
     height: 150px;
     padding-top: 15px; 
 
@@ -6267,8 +6267,9 @@ article header{
 
 article h1{
     width: auto;
+    font-weight: 800;
     text-align: left;
-    font-size: 4.5rem;
+    font-size: 2.0em;
     /* letter-spacing: 0px; */
     text-indent: -3px;
     margin-bottom: 5px;
@@ -6276,7 +6277,7 @@ article h1{
 
 article h2{
     text-align: left;
-    font-size: 2.5rem;
+    font-size: 1.5em;
     letter-spacing: 0px;
     text-indent: -3px;
     margin-bottom: 3px;
@@ -6292,7 +6293,7 @@ article time{
 
 article p{
     font-size: 17px;
-    font-family: "Merriweather", serif;
+    font-family: inherit;
     letter-spacing: 0.01rem;
     word-spacing: .15em;
 

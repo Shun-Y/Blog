@@ -12,7 +12,7 @@
   </div>
 
   <div class="figure">
-    <figure>
+      <figure><pre>
       .
       ├── app
       ├── config
@@ -33,7 +33,7 @@
       ├── test
       │   └── Handler
       └── yesod-devel
-    </figure>
+    </pre></figure>
     <p>work directory of web service</p>
   </div>
   <p>You would be able to create same application by reading through the instruction.
@@ -56,9 +56,35 @@
 
 <section>
   <h1>Installation</h1>
-  <h2>1.create directory for the app.</h1>
-  <p></p>  
+  <h2>1.create directory for the app.</h2>
+  <p></p>
   <pre>mkdir <APPNAME> && cd <APPNAME></pre>
+  <h2>2. yesod init</h2>
+  <p> </p>
+  <pre>stack exec -- yesod init -n <APPNAME> -d <DATABASE> --bare</pre>
+  <h2>3. stack init</h2>
+  <p> </p>
+  <pre>stack init</pre>
+  <h2>4. write Dockerfile ,doccker-compose.yml and config/settings.yml</h2>
+  <p>Dockerfile</p>
+  <pre>
+  </pre>
+  <p>doccker-compose</p>
+  <pre>
+  </pre>
+  <p>config/settings.yml</p>
+  <pre>
+  </pre>
+  <h2>5. git commit</h2>
+  <p> </p>
+  <pre>stack exec -- yesod init -n <APPNAME> -d <DATABASE> --bare</pre>
+  <h2>6. create initial database</h2>
+  <p> </p>
+  <pre>stack exec -- yesod init -n <APPNAME> -d <DATABASE> --bare</pre>
+  <h2>7. docker compose up</h2>
+  <p> </p>
+  <pre>stack exec -- yesod init -n <APPNAME> -d <DATABASE> --bare</pre>
+
 </section>
 
 

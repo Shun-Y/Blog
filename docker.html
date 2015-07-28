@@ -1,0 +1,82 @@
+<section>
+  <h1>Abstract about this article</h1>
+  <p>
+  This article show how to do dockerize web(Yesod) application.
+  Structure of the application described below would be as below.
+  </p>
+  <div class="figure">
+    <figure>
+      Component図
+    </figure>
+    <p>Structure of components</p>
+  </div>
+
+  <div class="figure">
+    <figure>
+      .
+      ├── app
+      ├── config
+      ├── dist
+      │   └── build
+      │       ├── autogen
+      │       ├── Handler
+      │       ├── Import
+      │       └── Settings
+      ├── Handler
+      ├── Import
+      ├── Settings
+      ├── static
+      │   ├── css
+      │   ├── fonts
+      │   └── tmp
+      ├── templates
+      ├── test
+      │   └── Handler
+      └── yesod-devel
+    </figure>
+    <p>work directory of web service</p>
+  </div>
+  <p>You would be able to create same application by reading through the instruction.
+  </p>
+</section>
+
+<section>
+  <h1>Workflow</h1>
+
+  <ul>
+    <li>1.create directory for the app.</li>
+    <li>2. yesod init</li>
+    <li>3. stack init</li>
+    <li>4. write Dockerfile ,doccker-compose.yml and config/settings.yml</li>
+    <li>5. git commit</li>
+    <li>6. create initial database</li>
+    <li>7. docker compose up</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Installation</h1>
+  <h2>1.create directory for the app.</h1>
+  <p></p>  
+  <pre>mkdir <APPNAME> && cd <APPNAME></pre>
+</section>
+
+
+
+<!-- どのようなことを書きたいか -->
+<!-- composeの構成要素-> compose.ymlの記述内容 -->
+<!-- バックアップの取り方 -->
+<!-- docker-machineを使ったローカルからProductionへのデプロイ -->
+<!-- dockerを使って基本アプリケーションの構成 -->
+<!-- Yesodアプリを使ったデータベースの更新 -->
+
+<!-- 対象の読者{ -->
+<!-- Dockerを使ったWebアプリケーションの構成方法に興味がある人 -->
+<!-- Yesodフレームワークを使っている人 -->
+<!-- } -->
+
+
+<!-- Prerequirement{ -->
+    <!-- Docker -->
+
+<!-- } -->

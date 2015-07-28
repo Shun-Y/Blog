@@ -18,14 +18,13 @@ web:
     links:
         - postgres
 
-database:
-    extends:
-        file: common.yml
-        service: database
-
 postgres:
     image: postgres:latest
-    volumes_from:
-      - database
-    ports:
+    volumes:
+      - /var/lib/postgresql
       - "5432:5432"
+
+database:
+    image: postgres
+    volumes_from:
+      - postgres

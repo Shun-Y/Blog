@@ -1,0 +1,99 @@
+<section>
+  <!-- <h1>Abstract about this article</h1> -->
+  <p>
+  Recently, Blog entry about constructing web application using Docker Compose can be seen often than before.
+  And also "How to dockerize Yesod Application" also can be seen but  
+  decompose these application each service (container).
+  Recently, I'm interested in how to construct Web(Yesod) Application using Docker Compose.
+  I'm currently experimenting in blog application.
+  I'd like to share what I'm strugging and want any feedback.
+  So, please give me any feedback!
+  </p>
+  <p>This is the construction of the application that I want to create</p>
+  <div class="figure">
+    <figure>
+
+    </figure>
+    <p>Structure of components</p>
+  </div>
+</section>
+
+<section>
+  <h1>docker-compose.yml</h1>
+  <p>
+    All you have to do to compose all components for the application is just to write "docker-compose.yml".
+    Here is a yml file for my sample application.
+    I'd like to describe rules of each line. 
+  </p>
+  <pre>
+    web:
+        build: .
+        volumes:
+          - .:/blog/
+        tty: true
+        stdin_open: true 
+        working_dir: /blog
+        ports:
+            - "3000:3000"
+        command: stack exec -- yesod devel
+        environment:
+          # - PATH=/root/.local/bin:$PATH
+          - HOST=0.0.0.0
+          - APPROOT=http://localhost:3000
+          - PGUSER=postgres
+          - PGPASS
+          - PGHOST=postgres
+        links:
+            - postgres
+    postgres:
+        image: postgres:latest
+        volumes:
+          - /var/lib/postgresql
+        ports:
+          - "5432:5432"
+    database:
+        image: postgres
+        volumes_from:
+          - postgres
+  </pre>
+  <p>
+  docker-compose will create one docker container for each service.
+  web: 
+    build: image of the container 
+    volumes: edit files on local system, 
+    stdin_open: true  
+    working_dir: set where the command run. 
+    port: set the port exported
+    command: command run when service start running.
+    environment: set environment variable.
+    links: write a service to make connection
+
+  postgres:
+    image:
+    volumes: write a path to export volume
+
+  database:
+    ima
+    volumes_from: write a service to mount
+    
+  </p>
+</section>
+
+<section>
+    <h1>Runnning Application</h1>
+    <p>Now you got ready to run the application.<br>
+    you can run your application just by these two commands.
+    </p>
+    <pre> docker-compose build
+    docker-compose up -d
+    </pre>
+    Accese http://localhost:3000/ and you can see the Hello Yesod home page if you did correctly did this instruction.
+</section>
+
+<section>
+    <h1>what is the next?</h1>
+    <p>
+      I'll describe edit flow next time
+    </p>
+
+</section>

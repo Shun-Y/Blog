@@ -896,8 +896,8 @@ html {
 }
 body {
     font-family: "Ubuntu";
-    font-size: 14px;
-    line-height: 1.42857143;
+    font-size: 15.8px;
+    line-height: 1.40857143;
     color: #595857;
     background-color: #fff;
 }
@@ -6204,8 +6204,10 @@ button.close {
 
 /* style for blog site */
 header{
-    background-color: #000A02;
-    border-bottom: 5px solid #595857;
+    /* background: linear-gradient(315deg, rgb(169, 175, 146) 0%, rgb(47, 63, 108) 100%); */
+    background: linear-gradient(315deg, rgb(245, 245, 245) 0%, rgb(98, 98, 98) 100%);
+    /* background-color: #000A02; */
+    border-bottom: 1px solid rgba(228,229,233,0.96);
     height: 150px;
     padding-top: 15px; 
 
@@ -6247,12 +6249,13 @@ footer{
     margin-top: 50px;
     height: 50px;
     clear: both;
+    font-size: 10px;
 }
 
 article{
     background-color: #fff;
     margin:-50px 0 100px 0px;
-    position:relative;       
+    position:relative;
     padding: 30px;
     -webkit-box-shadow:0 1.5px 1px rgba(0, 0, 0, 0.3), 0 0 0.2px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow:0 1.5px 1px rgba(0, 0, 0, 0.3), 0 0 0.2px rgba(0, 0, 0, 0.1) inset;
@@ -6260,9 +6263,11 @@ article{
 }
 
 article header{
+    border-bottom: 1px solid rgba(228,229,233,0.96);
     padding-top: 5px;
+    background: none;
     background-color: #fff;
-    border: none;
+    margin-bottom: 4rem;
 }
 
 article h1{
@@ -6271,7 +6276,6 @@ article h1{
     text-align: left;
     font-size: 2.0em;
     /* letter-spacing: 0px; */
-    text-indent: -3px;
     margin-bottom: 5px;
 }
 
@@ -6283,24 +6287,21 @@ article h2{
     margin-bottom: 3px;
 }
 
-
 article time{
     float: right;
     color: #666;
-    border-right: #999 1px solid;
-
 }
 
 article p{
     font-size: 17px;
     font-family: inherit;
-    letter-spacing: 0.01rem;
-    word-spacing: .15em;
+    /* letter-spacing: 0.01rem; */
+    word-spacing: 0.05em;
 
 }
 
 a{
-    color: #333;
+    color: #595857;
     transition: color 0.5s ease;
 }
 

@@ -1,0 +1,76 @@
+Conduit is one of streaming library.
+
+conduit
+<q cite="https://github.com/snoyberg/conduit#readme">
+conduit is a solution to the streaming data problem, allowing for production, transformation, and consumption of streams of data in constant memory. It can be used for processing files, dealing with network interfaces, or parsing structured data in an event-driven manner.
+</q> 
+Conduit provides the way to deal with streaming data. The steams consist of five kinds of flow: Source, Producer, Conduit, Consumer and Sink.
+
+Source provides streams of value consumed. ex) text data from a file in disk. reading from a network connection. obtaining each of the elements in a list 
+Sink
+
+----ConduitM i o m r----
+i: type of elements of the input stream
+o: type of elements produced by the actor
+m: type which is instance of monad
+r: type of the result of running the actor
+
+type Source m o = ConduitM () o m ()
+type Conduit i o m = ConduitM i o m ()
+type Sink i m = ConduitM i void m
+type Producer (m :: * -> *) o = forall i. ConduitM i o m ()
+type Consumer i (m :: * -> *) r = forall o. ConduitM i o m r
+
+function which can be used in ConduitM context
+<ul>
+    <li>await :: Monad m => ConduitM i o m (Maybe i) --taking "the next"stream. if it success, return this stream wrapped in Just otherwise return Nothing.</li>
+    <li>leftover :: i -> ConduitM i o m () --Puttting back values to the stream. the documentation warns that putting back elements that hadn't been obtained from a call to wait might get trouble</li>
+    <li>yield :: Monad m => o -> ConduitM i o m () --Sending values to the output stream</li>
+    <li>return :: Monad m => r -> ConduitM i o m r --Return simple value of conduitM</li>
+</ul>
+
+<h2>code example</h2> 
+<pre>
+getClientName' :: Monad m => Conduit Client m String
+getClientName' = do client <- await
+                    case client of 
+                      Nothing -> return ()
+                      Just c -> do case c of
+                                     (ClientGoOrg _ g) -> yield $ g^.goOrgName
+                                     (ClientCompany _ company) -> yield $ company^.companyName
+                                     (ClientIndividual _ i) -> yield $ i^.person.fullName
+                                     _ -> return ()
+                                   getClientName'
+
+</pre>
+
+<pre>
+getClientName :: Monad m => m [String]
+getClientName = L.sourceList cl $$ getClientName' =$ L.consume
+  where cl = [ClientCompany 1 (Company {_companyId = 1, _companyName = "Toyota", _duty = ""}), ClientGoOrg 2 (GoOrg {_goOrgId = 2, _goOrgName = "Japan.org"}), ClientCompany 3 (Company {_companyId = 2, _companyName = "Nissan", _duty = ""})]
+</pre>
+
+<pre>
+countGoOrgs :: MonadState Int m => Sink Client m Int -- == Sink Client (State Int) Int
+countGoOrgs = do client <- await
+                 case client of
+                   Nothing -> do n <- lift get
+                                 return n
+                   Just c -> do case c of
+                                  (ClientGoOrg _ _) -> lift $ modify (+1)
+                                  _ -> return ()
+                                countGoOrgs
+</pre>
+
+<h1>Access file via Conduit</h1>
+sourceFile --Generate a stream from a file. Caring file open/close
+sourceHandle --Generate a stream from a file. take opened file and doesn't close it at the end.
+sinkFile --Consume a stream and writing into file.
+sinkHandle --
+
+<h2>code example</h2>
+
+<pre>
+writeWinner :: IO ()
+writeWinner = runResourceT $ B.sourceFile "data/testdata" $$ T.decode T.utf8 =$= T.lines =$= winnersFile =$= L.concatMap (\s -> [s, "\n"]) =$= T.encode T.utf8 =$ B.sinkFile "data/cwinners"
+</pre>

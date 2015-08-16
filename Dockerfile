@@ -1,4 +1,4 @@
-FROM blog_web:latest
+FROM shuny/blog_web:latest
 
 #build new image
 COPY . ./

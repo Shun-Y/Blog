@@ -24,7 +24,7 @@ $newline never
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
   <body>
     <div class="container">
-      <header>a 
+      <header> 
         <h1><a href=@{HomeR}>Hello Haskell!!</a></h1>
       <div id="main">
         <div id="contents">

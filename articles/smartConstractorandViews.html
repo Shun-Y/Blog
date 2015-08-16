@@ -1,0 +1,22 @@
+<section>
+  <pre>
+    data Range = Range Integer Integer 
+    range :: Integer -> Integer -> Range --samrt constructer
+    range a b = if a > b then Range a b else error "this "
+    f Range a b = --this would cause error because Range constructer isn't exposed.
+  </pre>
+
+</section>
+
+<section>
+  <h1>Solution</h1>
+  <pre>data RangeObs = R Integer Integer deriving Show
+
+    r :: Range -> RangeObs
+    r (Range a b) = R a b
+
+    prettyRange :: Range -> String
+    prettyRange (r -> R a b) = show a ++ "" ++ show b
+  
+  </pre>
+</section>

@@ -2,7 +2,7 @@ web:
     build: .
     volumes:
       - .:/blog/
-    tty: true
+    # tty: true
     stdin_open: true 
     working_dir: /blog
     ports:
@@ -22,6 +22,7 @@ postgres:
     image: postgres:latest
     volumes:
       - /var/lib/postgresql
+    ports:
       - "5432:5432"
 
 database:

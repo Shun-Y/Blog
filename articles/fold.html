@@ -1,0 +1,10 @@
+fold 再考 read Haskell Origami
+
+ある状態を残しながらリスト上で計算を進めたいとき
+
+
+partition :: (a -> Bool) -> [a] -> ([a],[a])
+partition p list = foldr (check p) ([],[]) list
+
+check :: (a -> Bool) -> a -> ([a],[a]) -> ([a],[a])
+check p a (xs,ys) = if p a then ((a:xs),ys) else (xs,(a:ys))

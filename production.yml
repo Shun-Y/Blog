@@ -9,23 +9,24 @@ web:
     command: stack exec -- blog
     environment:
       - HOST=0.0.0.0
-      - APPROOT=http://104.236.123.109:3000
+      - APPROOT=http://45.55.91.101:3000
       - PGUSER=postgres
       - PGPASS
       - PGHOST=postgres
     links:
         - postgres
 
-database:
-    restart: always
-    extends:
-        file: common.yml
-        service: database
-
 postgres:
     restart: always
     image: postgres:latest
-    volumes_from:
-      - database
+    volumes: 
+      - /var/lib/postgresql
     ports:
       - "5432:5432"
+
+database:
+    image: postgres
+    restart: always
+    volumes_from:
+      - postgres
+

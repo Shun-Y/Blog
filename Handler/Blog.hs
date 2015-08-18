@@ -12,20 +12,31 @@ import Import
 -- functions. You can spread them across multiple files if you are so
 -- inclined, or create a single monolithic file.
 
-articleAForm :: AForm Handler Article
-articleAForm = Article
-  <$> areq textField "title" Nothing
-  <*> areq htmlField "" Nothing
+data DefaultArticle = DefaultArticle{
+                      title :: Text
+                    , body :: Html
+                    } 
+
+defaultValue :: DefaultArticle
+defaultValue = DefaultArticle 
+                 "" 
+                 ""
+
+
+articleAForm :: DefaultArticle -> AForm Handler Article
+articleAForm d = Article
+  <$> areq textField "title" (Just (title d))
+  <*> areq htmlField "" (Just (body d))
   <*> lift  (liftIO getCurrentTime)
 
-articleForm :: Form Article
-articleForm = renderTable articleAForm
+articleForm :: DefaultArticle -> Form Article
+articleForm d = renderTable $ articleAForm d
 
 
 getBlogR :: Handler Html
 getBlogR = do
     articles <- runDB $ selectList [] [Desc ArticleDate]
-    (formWidget, formEnctype) <- generateFormPost articleForm
+    (formWidget, formEnctype) <- generateFormPost $ articleForm defaultValue
     defaultLayout $ do
         aDomId <- newIdent
         setTitle "Blog Page"
@@ -33,7 +44,7 @@ getBlogR = do
        
 postBlogR :: Handler Html
 postBlogR = do
-    ((result, _), formEnctype) <- runFormPost articleForm 
+    ((result, _), formEnctype) <- runFormPost $ articleForm defaultValue
     case result of 
       FormSuccess article -> do
         articleId <- runDB $ insert article

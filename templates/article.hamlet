@@ -2,5 +2,4 @@
   <header>
     <h1>#{articleTitle article}
     <time>#{dateToString article}</time>
-  <section>
-    #{articleBody article}
+  #{articleBody article}

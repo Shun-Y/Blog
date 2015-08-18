@@ -6280,6 +6280,7 @@ article h1{
 }
 
 article h2{
+    font-weight: 600;
     text-align: left;
     font-size: 1.5em;
     letter-spacing: 0px;

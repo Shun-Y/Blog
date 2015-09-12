@@ -5,5 +5,3 @@
 $if null articles
     <p>There is no Article
 $else
-
-<hr />

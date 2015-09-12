@@ -18,7 +18,7 @@ articleAForm :: DefaultArticle -> AForm Handler Article
 articleAForm d = Article
   <$> areq textField (bfs ("Title" :: Text)) (Just (title d))
   <*> areq htmlField (bfs ("Body" :: Text) ) (Just (body d))
-  <*> lift  (liftIO getCurrentTime)
+  <*> lift (liftIO getCurrentTime)
 
 articleForm :: DefaultArticle -> Form Article
 articleForm d = renderBootstrap3 BootstrapBasicForm $ articleAForm d

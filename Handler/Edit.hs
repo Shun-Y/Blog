@@ -1,7 +1,7 @@
 module Handler.Edit where
 
 import Import
-import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3, withSmallInput, bfs) 
+import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3, bfs) 
 
 {- data ArticleWithId = ArticleWithId -}
                      {- { [> getId :: ArticleId <] -}
@@ -38,5 +38,5 @@ postEditR articleId = do
       _                   -> defaultLayout $ do
                                setTitle "PostArtcile"
                                [whamlet|
-                               <form method="post" enctype=#{formEnctype}>
+                               <form method=        "        post" enctype=#{formEnctype}>
                                |]

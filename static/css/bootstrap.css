@@ -1394,12 +1394,17 @@ pre code {
     /* padding-right: 15px; */
     /* padding-left: 15px; */
     background-color: #eeeeee;
+    /* background-image: url("http://free-texture.net/wp-content/uploads/Japanese-paper07-768x480.jpg"); */
+    /* background-repeat: repeat; */
     margin-right: auto;
     margin-left: auto;
 }
 @media (min-width: 768px) {
     .container {
         width: 750px;
+    }
+    div #main{
+        width: 100%
     }
 }
 @media (min-width: 992px) {
@@ -6225,9 +6230,11 @@ header a{
 }
 
 header a:hover{
-    color: #fff;
+    color: #ccc;
     text-decoration: none;
 }
+
+
 
 div #main{
     margin: 0 auto;
@@ -6285,7 +6292,7 @@ article h2{
     font-size: 1.5em;
     letter-spacing: 0px;
     text-indent: -3px;
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 article time{
